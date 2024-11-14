@@ -15,12 +15,12 @@ class Process{
         this.burst = burstTime;
         this.remaining = burstTime;
     }
-    Process(int id,float burst,float remaining, int priority){
+    /*Process(int id,float burst,float remaining, int priority){
         this.id=id;
         this.burst=burst;
         this.remaining=remaining;
         this.priority=priority;
-    }
+    }*/
 
     @Override
     public String toString() {
