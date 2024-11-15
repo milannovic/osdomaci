@@ -1,2 +1,2 @@
 # osdomaci
-os
+osdomaci
