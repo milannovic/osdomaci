@@ -12,10 +12,10 @@ class Process{
         this.burst = burstTime;
         this.remaining = burstTime;
     }
-    Process(int id,float burst,float remaining, int priority){
+    Process(int id,float burst, int priority){
         this.id=id;
         this.burst=burst;
-        this.remaining=remaining;
+        this.remaining=burst;
         this.priority=priority;
     }
 
@@ -32,10 +32,17 @@ public class Scheduling{
             new Process(5, 5),
             new Process(2, 2)
     ));
+    static ArrayList<Process> listProcess2 = new ArrayList<Process>(Arrays.<Process>asList(
+            new Process(1, 10,4),
+            new Process(2,5,2),
+            new Process(3, 4,2),
+            new Process(4,2,7)
+    ));
 
     public static void main(String[] args) {
         sjfScheduling();
         rrScheduling(4);
+        priorityScheduling();
     }
     static void sjfScheduling(){
         Queue<Process> queue=new PriorityQueue<>(
@@ -82,6 +89,21 @@ public class Scheduling{
                 queue.add(current);
         }
 
+    }
+    static void priorityScheduling(){
+        Queue<Process> queue=new PriorityQueue<>((p1,p2)->Float.compare(p1.priority,p2.priority));
+        for(Process p: listProcess2)
+            queue.add(p);
+        while(!queue.isEmpty()){
+            Process current=queue.poll();
+            System.out.println("Izvrsava se proces: " + current);
+            try{
+                Thread.sleep((int)current.burst*500);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+
+        }
     }
 
 }
