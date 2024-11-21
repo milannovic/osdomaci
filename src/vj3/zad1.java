@@ -2,7 +2,6 @@ package vj3;
 //1: Napišite program koji kreira i pokreće dva thread-a koristeći Runnable interfejs.
 //Svaki thread treba da ispisuje broj od 1 do 5 sa pauzom od 500 milisekundi između ispisa.
 
-import java.io.IOException;
 
 class classRunnable implements Runnable{
     String str;
